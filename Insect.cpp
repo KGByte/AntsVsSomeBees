@@ -6,12 +6,12 @@ Insect::Insect(int position) : currentPosition(position)
     
 }
 
-Insect::InsectType Insect::getType()
+char Insect::getInsectType()
 {
-    return insType;
+    return insectType;
 }
 
-void Insect::setInsectType(Insect::InsectType ins)
+void Insect::setInsectType(char ins)
 {
-    insType = ins;
+    insectType = ins;
 }

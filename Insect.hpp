@@ -23,17 +23,12 @@ protected:
 //Insect has armor, has a current position, has a type, etc...
     int armor;
     int currentPosition;
-    enum InsectType
-    {
-        A = 4,
-        B = 8
-    };
+    char insectType;
 public:
-    InsectType insType;
     Insect() {};
     Insect(int);
-    InsectType getType();
-    void setInsectType(InsectType);
+    char getInsectType();
+    void setInsectType(char type);
 };
 
 

@@ -19,7 +19,7 @@ void Colony::printBoard()
     for (auto &it : gameBoard)
     {
         if (it != nullptr)
-            cout << it->getType();
+            cout << it->getInsectType();
         else
             cout << " ";
     }
@@ -37,19 +37,23 @@ void Colony::placeBees()
 //create ant and place at specific location
 void Colony::createAnt()
 {   
-    int position = 0;
+    //make the damn compiler stop throwing warnings at me
+    long unsigned int position = 0;
     cout << "Where do you want to set your Ant? " << endl;
     cin >> position;
-
     //try position, make sure ant is within bounds and not on another ant
-    while ((position < 0) || (position >= gameBoard.size()) && getIsOccupied() == true)
+
+    while ((position < 0) || (position >= gameBoard.size()) || gameBoard.at(position) != nullptr)
     {
         cout << "Ant position must be inside the bounds of the board, and cannot be on top of another ant" << endl;
         cin >> position;
+    }        
+    
+    if (gameBoard.at(position) == nullptr)
+    {
+        gameBoard.at(position) = new Ant(position);
     }
-
-    gameBoard.at(position) = new Ant(position);
-    setIsOccupied(isOccupied);
+    
     numAnts++;
     cout << numAnts << endl;
 }

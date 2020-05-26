@@ -26,7 +26,6 @@ private:
     int turnCount;
     bool isOccupied;
     //int insectPosition;
-
 public:
     Colony();
     ~Colony();
